@@ -8,6 +8,21 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+export const Thumbnail = props => {
+  return (
+    <View
+      style={{
+        backgroundColor: 'red',
+        width: '40%',
+        height: 180,
+        marginHorizontal: '5%',
+        borderRadius: 10,
+      }}>
+      <Text>This</Text>
+    </View>
+  );
+};
+
 export const Cards = props => {
   return (
     <TouchableWithoutFeedback>
@@ -48,7 +63,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
   },
   items: {
-    marginHorizontal: 20,
+    marginHorizontal: 22,
     height: 340,
     width: 240,
     borderRadius: 22,

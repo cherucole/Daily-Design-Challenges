@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {Cards} from '../components/UI';
+import {Cards, Thumbnail} from '../components/UI';
 
 const HomePage = props => {
   const brands = [
@@ -110,8 +110,14 @@ const HomePage = props => {
           ))}
         </ScrollView>
       </View>
-
-      {/* <Cards /> */}
+      <View style={styles.more}>
+        <Text style={{fontSize: 26, fontWeight: '600'}}>More</Text>
+        <Ionicons name="ios-arrow-round-forward" size={50} color="black" />
+      </View>
+      <View style={{flexDirection: 'row'}}>
+        <Thumbnail />
+        <Thumbnail />
+      </View>
     </View>
   );
 };
@@ -147,7 +153,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   brands: {
-    marginVertical: 18,
+    marginVertical: 13,
     fontSize: 25,
     paddingHorizontal: 15,
     paddingRight: 20,
@@ -164,6 +170,12 @@ const styles = StyleSheet.create({
     color: 'gray',
     fontWeight: '600',
     // fontSize: 15,
+  },
+  more: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    alignItems: 'center',
   },
 });
 
