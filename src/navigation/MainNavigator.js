@@ -4,6 +4,8 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {createStackNavigator} from 'react-navigation-stack';
 import Foundation from 'react-native-vector-icons/Foundation';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import SneakersHomePage from '../Sneakers/screens/HomePage';
 import CartPage from '../Sneakers/screens/CartPage';
@@ -38,18 +40,18 @@ const DashboardTabNavigator = createBottomTabNavigator(
     Cart: {
       screen: CartPage,
       navigationOptions: {
-        tabBarLabel: 'Home',
+        tabBarLabel: 'cart',
         tabBarIcon: ({tintColor, focused}) => (
-          <Foundation name="home" color={tintColor} size={30} />
+          <Feather name="shopping-cart" color={tintColor} size={30} />
         ),
       },
     },
     Profile: {
       screen: Profile,
       navigationOptions: {
-        tabBarLabel: 'Home',
+        tabBarLabel: 'Profile',
         tabBarIcon: ({tintColor, focused}) => (
-          <Foundation name="home" color={tintColor} size={30} />
+          <Ionicons name="md-person" color={tintColor} size={30} />
         ),
       },
     },
@@ -60,7 +62,7 @@ const DashboardTabNavigator = createBottomTabNavigator(
       activeTintColor: '#EA4C88',
       inactiveTintColor: 'grey',
       style: {
-        backgroundColor: '#FAFAFA',
+        backgroundColor: '#D8D9DE',
         borderTopWidth: 0,
         shadowOffset: {width: 5, height: 3},
         shadowColor: 'black',
