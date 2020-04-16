@@ -17,18 +17,24 @@ export const Cards = props => {
           backgroundColor: props.color,
           shadowColor: props.color,
         }}>
-        <Image style={styles.image} source={props.image} />
+        <View style={styles.metadata}>
+          <Text style={styles.timeText}>{props.brand.toUpperCase()}</Text>
+          <Ionicons name="ios-heart-empty" color="white" size={29} />
+        </View>
         <View style={styles.title}>
           <Text numberOfLines={2} style={styles.text}>
-            {props.title}
+            {props.title.toUpperCase()}
           </Text>
+          <Text style={styles.price}>{props.price}</Text>
         </View>
-        <View style={styles.metadata}>
-          <View style={styles.time}>
-            <Ionicons name="md-time" size={17} color="gray" />
-            <Text style={styles.timeText}> mins</Text>
-          </View>
-          <Ionicons name="ios-heart-empty" color="white" size={26} />
+        <Image style={styles.image} source={props.image} />
+        <View>
+          <Ionicons
+            style={styles.bottomArrow}
+            name="ios-arrow-round-forward"
+            color="white"
+            size={49}
+          />
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -57,22 +63,48 @@ const styles = StyleSheet.create({
     // borderWidth: 0.3,
   },
   image: {
+    marginTop: 20,
     height: '50%',
     width: '110%',
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
     transform: [{rotate: '-25deg'}],
   },
+  metadata: {
+    marginTop: 15,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 13,
+  },
   title: {
-    height: '18%',
-    justifyContent: 'center',
+    height: '10%',
+    // justifyContent: 'center',
     paddingHorizontal: 2,
+    // backgroundColor: 'blue',
   },
   text: {
-    fontSize: 15,
+    paddingLeft: 15,
+    fontSize: 28,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginTop: 2,
-    color: '#3C0D31',
+    textAlign: 'left',
+    // marginTop: 2,
+    color: 'white',
+  },
+  price: {
+    fontSize: 16,
+    paddingLeft: 15,
+    marginTop: 10,
+    color: 'white',
+    fontWeight: '600',
+  },
+  timeText: {
+    color: 'white',
+    fontSize: 20,
+    paddingLeft: 5,
+  },
+  bottomArrow: {
+    alignSelf: 'flex-end',
+    paddingRight: 25,
+    marginTop: 10,
   },
 });

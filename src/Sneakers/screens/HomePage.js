@@ -99,7 +99,14 @@ const HomePage = props => {
         </View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {shoes.map(shoe => (
-            <Cards key={shoe.name} image={shoe.image} color={shoe.color} />
+            <Cards
+              key={shoe.name}
+              image={shoe.image}
+              color={shoe.color}
+              title={shoe.name}
+              price={shoe.price}
+              brand={shoe.brand}
+            />
           ))}
         </ScrollView>
       </View>
@@ -155,6 +162,7 @@ const styles = StyleSheet.create({
   verticalText: {
     transform: [{rotate: '-90deg'}],
     color: 'gray',
+    fontWeight: '600',
     // fontSize: 15,
   },
 });
