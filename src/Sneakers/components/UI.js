@@ -10,15 +10,18 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export const Thumbnail = props => {
   return (
-    <View
-      style={{
-        backgroundColor: 'red',
-        width: '40%',
-        height: 180,
-        marginHorizontal: '5%',
-        borderRadius: 10,
-      }}>
-      <Text>This</Text>
+    <View style={styles.thumbnail}>
+      <View>
+        <Ionicons
+          style={styles.likeThumbnail}
+          name="md-heart-empty"
+          color="black"
+          size={29}
+        />
+      </View>
+      <Image style={styles.thumbnailImage} source={props.source} />
+      <Text style={styles.thumbnailName}>{props.name.toUpperCase()}</Text>
+      <Text style={styles.thumbnailPrice}>{props.price}</Text>
     </View>
   );
 };
@@ -33,7 +36,7 @@ export const Cards = props => {
           shadowColor: props.color,
         }}>
         <View style={styles.metadata}>
-          <Text style={styles.timeText}>{props.brand.toUpperCase()}</Text>
+          <Text style={styles.brandLabel}>{props.brand.toUpperCase()}</Text>
           <Ionicons name="ios-heart-empty" color="white" size={29} />
         </View>
         <View style={styles.title}>
@@ -112,7 +115,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '600',
   },
-  timeText: {
+  brandLabel: {
     color: 'white',
     fontSize: 20,
     paddingLeft: 5,
@@ -121,5 +124,34 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     paddingRight: 25,
     marginTop: 10,
+  },
+  thumbnail: {
+    backgroundColor: 'white',
+    width: '40%',
+    height: 180,
+    marginHorizontal: '5%',
+    borderRadius: 10,
+  },
+  thumbnailImage: {
+    width: '100%',
+    height: '50%',
+    marginTop: -10,
+    marginBottom: 4,
+  },
+  likeThumbnail: {
+    alignSelf: 'flex-end',
+    paddingRight: 15,
+    marginTop: 10,
+  },
+  thumbnailName: {
+    alignSelf: 'center',
+    marginVertical: 4,
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  thumbnailPrice: {
+    alignSelf: 'center',
+    fontSize: 12,
+    fontWeight: '600',
   },
 });

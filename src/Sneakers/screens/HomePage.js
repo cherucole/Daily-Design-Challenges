@@ -111,12 +111,20 @@ const HomePage = props => {
         </ScrollView>
       </View>
       <View style={styles.more}>
-        <Text style={{fontSize: 26, fontWeight: '600'}}>More</Text>
+        <Text style={styles.moreText}>More</Text>
         <Ionicons name="ios-arrow-round-forward" size={50} color="black" />
       </View>
       <View style={{flexDirection: 'row'}}>
-        <Thumbnail />
-        <Thumbnail />
+        <Thumbnail
+          source={shoes[2].image}
+          name={shoes[2].name}
+          price={shoes[2].price}
+        />
+        <Thumbnail
+          source={shoes[1].image}
+          name={shoes[1].name}
+          price={shoes[1].price}
+        />
       </View>
     </View>
   );
@@ -176,6 +184,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     alignItems: 'center',
+  },
+  moreText: {
+    fontSize: 26,
+    fontWeight: '600',
   },
 });
 
