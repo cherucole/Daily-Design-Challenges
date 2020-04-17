@@ -1,9 +1,46 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {Cards, Thumbnail} from '../components/UI';
+import { Cards, Thumbnail } from '../components/HomeUI';
+export const shoes = [
+  {
+    name: 'Air Max 270',
+    brand: 'Nike',
+    price: '$ 129.99',
+    image: require('../assets/air1.png'),
+    color: '#ff4444',
+  },
+  {
+    name: 'Air Max 99',
+    brand: 'Nike',
+    price: '$ 99.99',
+    image: require('../assets/air2.png'),
+    color: '#0d47a1',
+  },
+  {
+    name: 'Air Max Pro',
+    brand: 'Nike',
+    price: '$ 149.99',
+    image: require('../assets/air3.png'),
+    color: '#33b5e5',
+  },
+  {
+    name: 'Air Max Lite',
+    brand: 'Nike',
+    price: '$ 39.99',
+    image: require('../assets/air4.png'),
+    color: '#00C851',
+  },
+  {
+    name: 'Air Max Plus',
+    brand: 'Nike',
+    price: '$ 129.99',
+    image: require('../assets/air5.png'),
+    color: '#ffbb33',
+  },
+];
 
 const HomePage = props => {
   const brands = [
@@ -14,44 +51,6 @@ const HomePage = props => {
     'Reebok',
     'Vans',
     'Skechers',
-  ];
-
-  const shoes = [
-    {
-      name: 'Air Max 270',
-      brand: 'Nike',
-      price: '$ 129.99',
-      image: require('../assets/air1.png'),
-      color: '#ff4444',
-    },
-    {
-      name: 'Air Max 99',
-      brand: 'Nike',
-      price: '$ 99.99',
-      image: require('../assets/air2.png'),
-      color: '#0d47a1',
-    },
-    {
-      name: 'Air Max Pro',
-      brand: 'Nike',
-      price: '$ 149.99',
-      image: require('../assets/air3.png'),
-      color: '#33b5e5',
-    },
-    {
-      name: 'Air Max Lite',
-      brand: 'Nike',
-      price: '$ 39.99',
-      image: require('../assets/air4.png'),
-      color: '#00C851',
-    },
-    {
-      name: 'Air Max Plus',
-      brand: 'Nike',
-      price: '$ 129.99',
-      image: require('../assets/air5.png'),
-      color: '#ffbb33',
-    },
   ];
 
   const renderShoe = shoe => {
@@ -94,7 +93,9 @@ const HomePage = props => {
       <View style={styles.mainContent}>
         <View style={styles.verticalContainer}>
           <Text style={styles.verticalText}>Upcoming</Text>
-          <Text style={{...styles.verticalText, color: 'black'}}>Featured</Text>
+          <Text style={{ ...styles.verticalText, color: 'black' }}>
+            Featured
+          </Text>
           <Text style={styles.verticalText}>New</Text>
         </View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -114,7 +115,7 @@ const HomePage = props => {
         <Text style={styles.moreText}>More</Text>
         <Ionicons name="ios-arrow-round-forward" size={50} color="black" />
       </View>
-      <View style={{flexDirection: 'row'}}>
+      <View style={{ flexDirection: 'row' }}>
         <Thumbnail
           source={shoes[2].image}
           name={shoes[2].name}
@@ -174,7 +175,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   verticalText: {
-    transform: [{rotate: '-90deg'}],
+    transform: [{ rotate: '-90deg' }],
     color: 'gray',
     fontWeight: '600',
     // fontSize: 15,
