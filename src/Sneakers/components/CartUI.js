@@ -16,8 +16,8 @@ export const CartItem = props => {
         />
       </View>
       <View style={styles.metadata}>
-        <Text style={styles.name}>Air Jordan</Text>
-        <Text style={styles.price}>$ 199.99</Text>
+        <Text style={styles.name}>{props.name.toUpperCase()}</Text>
+        <Text style={styles.price}>{props.price}</Text>
         <View style={styles.addOrder}>
           <AntDesign
             style={styles.buttons}
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   name: {
-    fontSize: 26,
+    fontSize: 23,
   },
   price: {
     fontSize: 24,
