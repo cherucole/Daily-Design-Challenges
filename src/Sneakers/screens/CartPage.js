@@ -20,7 +20,7 @@ const CartPage = props => {
       </View>
       <ScrollView>
         {shoes.map(shoe => (
-          <CartItem color={shoe.color} />
+          <CartItem color={shoe.color} image={shoe.image} />
         ))}
       </ScrollView>
       <View>
@@ -40,7 +40,7 @@ export default CartPage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 70,
+    paddingTop: 50,
   },
   header: {
     flexDirection: 'row',
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#bdbdbd',
+    marginBottom: 10,
   },
   myCartText: {
     fontSize: 28,
