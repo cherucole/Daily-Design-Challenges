@@ -9,6 +9,7 @@ const CartPage = props => {
   return (
     <View style={styles.container}>
       <Ionicons
+        onPress={() => props.navigation.goBack()}
         style={{ paddingLeft: 20 }}
         name="ios-arrow-round-back"
         size={50}
@@ -31,7 +32,7 @@ const CartPage = props => {
       <View>
         <View style={styles.total}>
           <Text>TOTAL</Text>
-          <Text style={styles.totalText}>$298.89</Text>
+          <Text style={styles.totalText}>$498.89</Text>
         </View>
         <View style={styles.button}>
           <Text style={{ ...styles.totalText, color: 'white' }}>
@@ -55,9 +56,9 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
     borderBottomColor: '#bdbdbd',
-    marginBottom: 10,
+    // marginBottom: 10,
   },
   myCartText: {
     fontSize: 28,
@@ -69,13 +70,13 @@ const styles = StyleSheet.create({
   },
   total: {
     flexDirection: 'row',
-    marginHorizontal: 20,
+    paddingHorizontal: 20,
     justifyContent: 'space-between',
-    marginVertical: 15,
+    // marginVertical: 15,
     alignItems: 'center',
-    borderTopWidth: 1,
+    borderTopWidth: 0.5,
     borderTopColor: '#bdbdbd',
-    paddingTop: 20,
+    paddingVertical: 20,
   },
   button: {
     backgroundColor: '#ff4444',
@@ -85,6 +86,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 40,
   },
 });

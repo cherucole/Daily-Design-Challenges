@@ -107,6 +107,7 @@ const HomePage = props => {
               title={shoe.name}
               price={shoe.price}
               brand={shoe.brand}
+              onPressArrow={() => props.navigation.navigate('PlaceOrder')}
             />
           ))}
         </ScrollView>

@@ -37,7 +37,7 @@ export const Cards = props => {
         }}>
         <View style={styles.metadata}>
           <Text style={styles.brandLabel}>{props.brand.toUpperCase()}</Text>
-          <Ionicons name="ios-heart-empty" color="white" size={29} />
+          <Ionicons name="md-heart-empty" color="white" size={29} />
         </View>
         <View style={styles.title}>
           <Text numberOfLines={2} style={styles.text}>
@@ -52,6 +52,7 @@ export const Cards = props => {
             name="ios-arrow-round-forward"
             color="white"
             size={49}
+            onPress={props.onPressArrow}
           />
         </View>
       </View>
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     // shadowColor: 'black',
     shadowOpacity: 1,
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
     elevation: 5,
     // borderColor: '#333',
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
     width: '110%',
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
-    transform: [{rotate: '-25deg'}],
+    transform: [{ rotate: '-25deg' }],
   },
   metadata: {
     marginTop: 15,
