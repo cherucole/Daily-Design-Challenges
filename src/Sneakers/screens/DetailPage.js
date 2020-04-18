@@ -1,8 +1,27 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, StatusBar } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  StatusBar,
+  ScrollView,
+} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+const sizes = [7, 8, 9, 10, 11, 12];
+
 const DetailPage = props => {
+  const renderSelected = number => {
+    return (
+      <View style={styles.sizes}>
+        <Text style={{ fontSize: 24 }}>{number}</Text>
+        {sizes[1] === number && (
+          <Ionicons name="ios-checkmark-circle" size={25} color="#00C851" />
+        )}
+      </View>
+    );
+  };
   const shoe = props.navigation.getParam('shoe');
   const allShoes = props.navigation.getParam('allShoes');
   return (
@@ -56,6 +75,9 @@ const DetailPage = props => {
           </Text>
         </View>
       </View>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {sizes.map(number => renderSelected(number))}
+      </ScrollView>
       <View style={{ ...styles.button, backgroundColor: shoe.color }}>
         <Text style={{ fontSize: 22, color: 'white', fontWeight: '500' }}>
           ADD TO CART
@@ -117,7 +139,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   name: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: '700',
   },
   moreDetails: {
@@ -142,5 +164,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 40,
+  },
+  sizes: {
+    marginLeft: 20,
+    marginVertical: 9,
+    width: 90,
+    height: 60,
+    // backgroundColor: 'red',
+    borderWidth: 0.5,
+    borderColor: '#9e9e9e',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    borderRadius: 5,
+    flexDirection: 'row',
+    paddingHorizontal: 20,
   },
 });
