@@ -22,7 +22,7 @@ const CartPage = props => {
       <ScrollView>
         {shoes.map(shoe => (
           <CartItem
-            unique={shoe.name}
+            unique={shoe.color}
             color={shoe.color}
             image={shoe.image}
             name={shoe.name}

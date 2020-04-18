@@ -14,7 +14,7 @@ const sizes = [7, 8, 9, 10, 11, 12];
 const DetailPage = props => {
   const renderSelected = number => {
     return (
-      <View style={styles.sizes}>
+      <View key={number} style={styles.sizes}>
         <Text style={{ fontSize: 24 }}>{number}</Text>
         {sizes[1] === number && (
           <Ionicons name="ios-checkmark-circle" size={25} color="#00C851" />

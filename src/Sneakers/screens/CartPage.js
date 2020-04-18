@@ -18,16 +18,17 @@ const CartPage = props => {
         <Text style={styles.myCartText}>My Cart</Text>
         <Text style={styles.totalText}>Total: 5 items</Text>
       </View>
-      <ScrollView>
+      {/* <ScrollView>
         {shoes.map(shoe => (
           <CartItem
+            key={shoe.name}
             color={shoe.color}
             image={shoe.image}
             name={shoe.name}
             price={shoe.price}
           />
         ))}
-      </ScrollView>
+      </ScrollView> */}
       <View>
         <View style={styles.total}>
           <Text>TOTAL</Text>
