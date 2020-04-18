@@ -28,7 +28,7 @@ export const Thumbnail = props => {
 
 export const Cards = props => {
   return (
-    <TouchableWithoutFeedback>
+    <TouchableWithoutFeedback onPress={props.onPressCard}>
       <View
         style={{
           ...styles.items,

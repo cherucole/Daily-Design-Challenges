@@ -101,6 +101,12 @@ const HomePage = props => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {shoes.map(shoe => (
             <Cards
+              onPressCard={() =>
+                props.navigation.navigate('DetailPage', {
+                  shoe: shoe,
+                  allShoes: shoes,
+                })
+              }
               key={shoe.name}
               image={shoe.image}
               color={shoe.color}

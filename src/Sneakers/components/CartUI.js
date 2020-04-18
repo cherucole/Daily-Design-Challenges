@@ -4,7 +4,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 export const CartItem = props => {
   return (
-    <View style={styles.container}>
+    <View key={props.unique} style={styles.container}>
       <View style={{ ...styles.imageContainer }}>
         <View
           style={{
