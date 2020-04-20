@@ -17,3 +17,7 @@
 # Cart Page
 
 ![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/Sneakers/assets/cart.png?raw=true)
+
+# Stream App
+
+![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/Streaming/assets/stream.png?raw=true)
