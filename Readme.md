@@ -2,21 +2,9 @@
 
 ### Decided to challenge myself and build one UI a day of mobile apps based on designs available in dribbble.com. Feel free to use the code and give credits. Thank you
 
-# Home Page
+# Sneakers App Preview
 
-![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/Sneakers/assets/final.png?raw=true)
-
-# Detail Page
-
-![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/Sneakers/assets/red.png?raw=true)
-
-# Detail Page
-
-![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/Sneakers/assets/green.png?raw=true)
-
-# Cart Page
-
-![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/Sneakers/assets/cart.png?raw=true)
+![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/Sneakers/assets/sneakers.gif?raw=true)
 
 # Stream App
 
