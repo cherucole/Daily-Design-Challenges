@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
 const SectionHeader = props => {
@@ -41,6 +42,24 @@ export const games = [
     name: 'Call of Duty',
     image: require('../assets/cod.jpg'),
     views: '107.3k',
+  },
+];
+export const streams = [
+  {
+    name: 'DevaikuCS',
+    image: require('../assets/ls1.jpg'),
+    avatar: require('../assets/passport.png'),
+    description: 'Pandora Weekly Tournament',
+    category: 'Apex Legends',
+    views: '56.8k',
+  },
+  {
+    name: 'Cherucole',
+    image: require('../assets/ls2.jpg'),
+    avatar: require('../assets/passport.png'),
+    description: 'Facebook Gamers Tournament',
+    category: 'Fortnite',
+    views: '46.8k',
   },
 ];
 
@@ -101,8 +120,107 @@ const HomePage = props => {
           </ScrollView>
         </View>
         <SectionHeader name="Top Live Streamers" />
+        <View>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={{ marginLeft: 10 }}>
+            {streams.map(stream => (
+              <View
+                style={{
+                  marginHorizontal: 10,
+                  width: 320,
+                  height: 225,
+                  backgroundColor: '#546BFF',
+                }}>
+                <View
+                  style={{
+                    backgroundColor: 'yellow',
+                    height: '73%',
+                    width: '100%',
+                  }}>
+                  <ImageBackground
+                    style={{ height: '100%', width: '100%' }}
+                    source={stream.image}>
+                    <LinearGradient
+                      ref={r => (this.gradiant = r)}
+                      locations={[0, 1.0]}
+                      colors={['rgba(0,0,0,0.0)', 'rgba(0,0,0,0.60)']}
+                      style={styles.linearGradientStream}>
+                      <View
+                        style={{
+                          paddingTop: 130,
+                          marginLeft: 10,
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                        }}>
+                        <FontAwesome
+                          name="dot-circle-o"
+                          size={20}
+                          color="red"
+                        />
 
-        <Text>Yesss</Text>
+                        <Text
+                          style={{
+                            color: 'white',
+                            marginLeft: 5,
+                            fontSize: 16,
+                          }}>
+                          {stream.views} viewers
+                        </Text>
+                      </View>
+                    </LinearGradient>
+                  </ImageBackground>
+                </View>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    height: '100%',
+                  }}>
+                  <View
+                    style={{
+                      height: '27%',
+                      width: 80,
+                    }}>
+                    <View
+                      style={{
+                        height: '100%',
+                        width: '75%',
+                        alignSelf: 'center',
+                        justifyContent: 'space-around',
+                        alignItems: 'center',
+                      }}>
+                      <Image
+                        style={{
+                          height: '80%',
+                          width: '80%',
+                          borderRadius: 200,
+                        }}
+                        source={stream.avatar}
+                      />
+                    </View>
+                  </View>
+                  <View>
+                    <Text
+                      style={{
+                        color: 'white',
+                        fontWeight: '700',
+                        fontSize: 17,
+                      }}>
+                      {stream.name}
+                    </Text>
+                    <Text style={{ color: '#bbdefb', fontWeight: '600' }}>
+                      {stream.description}
+                    </Text>
+                    <Text style={{ color: '#bbdefb', fontWeight: '500' }}>
+                      {stream.category}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            ))}
+          </ScrollView>
+        </View>
       </View>
 
       {/* <Button
@@ -183,7 +301,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 19,
     marginLeft: 25,
-    marginTop: 10,
+    marginTop: 20,
     fontWeight: '500',
   },
   lineDivider: {
@@ -199,7 +317,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#4651FF',
     borderTopRightRadius: 40,
     marginTop: -40,
-    paddingTop: 20,
+    paddingTop: 10,
   },
   thumbnails: {
     backgroundColor: '#546BFF',
@@ -225,5 +343,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 10,
     justifyContent: 'space-around',
+  },
+  linearGradientStream: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
   },
 });
