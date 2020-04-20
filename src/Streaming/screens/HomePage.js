@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  Button,
   ImageBackground,
   StatusBar,
   Image,
@@ -126,16 +125,9 @@ const HomePage = props => {
             showsHorizontalScrollIndicator={false}
             style={{ marginLeft: 10 }}>
             {streams.map(stream => (
-              <View
-                style={{
-                  marginHorizontal: 10,
-                  width: 320,
-                  height: 225,
-                  backgroundColor: '#546BFF',
-                }}>
+              <View style={styles.streamContainer}>
                 <View
                   style={{
-                    backgroundColor: 'yellow',
                     height: '73%',
                     width: '100%',
                   }}>
@@ -147,25 +139,14 @@ const HomePage = props => {
                       locations={[0, 1.0]}
                       colors={['rgba(0,0,0,0.0)', 'rgba(0,0,0,0.60)']}
                       style={styles.linearGradientStream}>
-                      <View
-                        style={{
-                          paddingTop: 130,
-                          marginLeft: 10,
-                          flexDirection: 'row',
-                          alignItems: 'center',
-                        }}>
+                      <View style={styles.streamCount}>
                         <FontAwesome
                           name="dot-circle-o"
                           size={20}
                           color="red"
                         />
 
-                        <Text
-                          style={{
-                            color: 'white',
-                            marginLeft: 5,
-                            fontSize: 16,
-                          }}>
+                        <Text style={styles.streamCountText}>
                           {stream.views} viewers
                         </Text>
                       </View>
@@ -182,39 +163,17 @@ const HomePage = props => {
                       height: '27%',
                       width: 80,
                     }}>
-                    <View
-                      style={{
-                        height: '100%',
-                        width: '75%',
-                        alignSelf: 'center',
-                        justifyContent: 'space-around',
-                        alignItems: 'center',
-                      }}>
+                    <View style={styles.streamAvatar}>
                       <Image
-                        style={{
-                          height: '80%',
-                          width: '80%',
-                          borderRadius: 200,
-                        }}
+                        style={styles.streamImage}
                         source={stream.avatar}
                       />
                     </View>
                   </View>
                   <View>
-                    <Text
-                      style={{
-                        color: 'white',
-                        fontWeight: '700',
-                        fontSize: 17,
-                      }}>
-                      {stream.name}
-                    </Text>
-                    <Text style={{ color: '#bbdefb', fontWeight: '600' }}>
-                      {stream.description}
-                    </Text>
-                    <Text style={{ color: '#bbdefb', fontWeight: '500' }}>
-                      {stream.category}
-                    </Text>
+                    <Text style={styles.streamerName}>{stream.name}</Text>
+                    <Text style={styles.streamDesc}>{stream.description}</Text>
+                    <Text style={styles.streamCat}>{stream.category}</Text>
                   </View>
                 </View>
               </View>
@@ -222,11 +181,6 @@ const HomePage = props => {
           </ScrollView>
         </View>
       </View>
-
-      {/* <Button
-        title="Go To Details"
-        onPress={() => props.navigation.navigate('Details')}
-      /> */}
     </View>
   );
 };
@@ -348,5 +302,49 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     height: '100%',
+  },
+  streamContainer: {
+    marginHorizontal: 10,
+    width: 320,
+    height: 225,
+    backgroundColor: '#546BFF',
+    borderRadius: 4,
+    overflow: 'hidden',
+  },
+  streamCount: {
+    paddingTop: 130,
+    marginLeft: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  streamCountText: {
+    color: 'white',
+    marginLeft: 5,
+    fontSize: 16,
+  },
+  streamAvatar: {
+    height: '100%',
+    width: '75%',
+    alignSelf: 'center',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  streamImage: {
+    height: '80%',
+    width: '80%',
+    borderRadius: 200,
+  },
+  streamerName: {
+    color: 'white',
+    fontWeight: '700',
+    fontSize: 17,
+  },
+  streamDesc: {
+    color: '#bbdefb',
+    fontWeight: '600',
+  },
+  streamCat: {
+    color: '#bbdefb',
+    fontWeight: '500',
   },
 });
