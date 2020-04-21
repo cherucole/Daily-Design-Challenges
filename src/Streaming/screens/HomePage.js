@@ -13,7 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
-const SectionHeader = props => {
+export const SectionHeader = props => {
   return (
     <>
       <Text style={styles.sectionText}>{props.name}</Text>
@@ -60,6 +60,14 @@ export const streams = [
     description: 'Facebook Gamers Tournament',
     category: 'Fortnite',
     views: '46.8k',
+  },
+  {
+    name: 'StreamNinja',
+    image: require('../assets/ls1.jpg'),
+    avatar: require('../assets/passport.png'),
+    description: 'Pandora Weekly Tournament',
+    category: 'Apex Legends',
+    views: '36.8k',
   },
 ];
 
