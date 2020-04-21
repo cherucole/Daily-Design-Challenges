@@ -22,20 +22,8 @@ const Details = props => {
             locations={[0, 1.0]}
             colors={['rgba(0,0,0,0.20)', 'rgba(10,9,40,0.9)']}
             style={styles.linearGradient}>
-            <View
-              style={{
-                marginHorizontal: 25,
-                paddingTop: 50,
-                justifyContent: 'space-between',
-                // backgroundColor: 'yellow',
-                height: '100%',
-              }}>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}>
+            <View style={styles.headerContainer}>
+              <View style={styles.navigationRow}>
                 <Ionicons
                   onPress={() => props.navigation.goBack()}
                   name="ios-arrow-round-back"
@@ -51,7 +39,6 @@ const Details = props => {
               </View>
               <View
                 style={{
-                  // backgroundColor: 'red',
                   height: '50%',
                 }}>
                 <View style={{ flexDirection: 'row' }}>
@@ -62,70 +49,22 @@ const Details = props => {
                     <Text style={styles.tagsText}>Shooter</Text>
                   </View>
                 </View>
-                <Text
-                  style={{
-                    fontSize: 45,
-                    fontWeight: '700',
-                    marginVertical: 10,
-                    color: 'white',
-                  }}>
-                  {game.name}
-                </Text>
+                <Text style={styles.name}>{game.name}</Text>
                 <View style={{ flexDirection: 'row' }}>
-                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <View style={styles.metadata}>
                     <MaterialIcons name="person" size={20} color="#bbdefb" />
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        marginLeft: 6,
-                        fontWeight: '500',
-                        color: '#bbdefb',
-                      }}>
-                      10.7 M Followers
-                    </Text>
+                    <Text style={styles.followersText}>10.7 M Followers</Text>
                   </View>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      marginLeft: 20,
-                    }}>
+                  <View style={styles.totalViewers}>
                     <Ionicons name="md-eye" size={20} color="#bbdefb" />
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        marginLeft: 6,
-                        fontWeight: '500',
-                        color: '#bbdefb',
-                      }}>
+                    <Text style={styles.totalViewersText}>
                       {game.views} Viewers
                     </Text>
                   </View>
                 </View>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    marginVertical: 20,
-                  }}>
-                  <View
-                    style={{
-                      backgroundColor: '#3643FF',
-                      width: '40%',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      borderRadius: 10,
-                    }}>
-                    <Text
-                      style={{
-                        paddingVertical: 10,
-                        fontSize: 20,
-                        color: 'white',
-                        fontWeight: '600',
-                      }}>
-                      Following
-                    </Text>
+                <View style={styles.followingButtonRow}>
+                  <View style={styles.followingButton}>
+                    <Text style={styles.buttonText}>Following</Text>
                   </View>
                   <Entypo
                     name="dots-three-vertical"
@@ -142,75 +81,25 @@ const Details = props => {
         <SectionHeader name="Top Live Channels" />
         {streams.map(stream => (
           <View style={{ marginHorizontal: 25, flexDirection: 'row' }}>
-            <View
-              style={{
-                width: 180,
-                height: 100,
-                marginBottom: 20,
-                borderRadius: 5,
-                overflow: 'hidden',
-              }}>
+            <View style={styles.channelsContainer}>
               <ImageBackground
                 style={{ width: '100%', height: '100%' }}
                 source={stream.image}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    marginLeft: 15,
-                    paddingTop: 75,
-                  }}>
+                <View style={styles.liveButton}>
                   <FontAwesome name="dot-circle-o" size={18} color="red" />
-                  <Text
-                    style={{
-                      fontSize: 15,
-                      color: 'white',
-                      fontWeight: '600',
-                      marginLeft: 5,
-                    }}>
-                    LIVE
-                  </Text>
+                  <Text style={styles.liveText}>LIVE</Text>
                 </View>
               </ImageBackground>
             </View>
             <View style={{ flexGrow: 1, flex: 1 }}>
-              <Text
-                style={{
-                  color: 'white',
-                  marginLeft: 15,
-                  fontSize: 18,
-                  fontWeight: '700',
-                  marginBottom: 5,
-                }}>
-                {stream.description}
-              </Text>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  marginLeft: 15,
-                  marginBottom: 5,
-                }}>
+              <Text style={styles.streamTitle}>{stream.description}</Text>
+              <View style={styles.streamViews}>
                 <Ionicons name="md-eye" size={20} color="#bbdefb" />
-                <Text
-                  style={{
-                    fontSize: 16,
-                    marginLeft: 6,
-                    fontWeight: '500',
-                    color: '#bbdefb',
-                  }}>
+                <Text style={styles.streamViewsText}>
                   {stream.views} Viewers
                 </Text>
               </View>
-              <Text
-                style={{
-                  fontSize: 15,
-                  marginLeft: 15,
-                  fontWeight: '500',
-                  color: '#bbdefb',
-                  marginBottom: 5,
-                }}>
-                @{stream.name}
-              </Text>
+              {/* <Text style={styles.streamer}>@{stream.name}</Text> */}
             </View>
           </View>
         ))}
@@ -224,10 +113,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  headerContainer: {
+    marginHorizontal: 25,
+    paddingTop: 50,
+    justifyContent: 'space-between',
+    height: '100%',
+  },
   linearGradient: {
     position: 'absolute',
     width: '100%',
     height: '100%',
+  },
+  navigationRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   tags: {
     paddingVertical: 3,
@@ -242,5 +142,95 @@ const styles = StyleSheet.create({
   tagsText: {
     color: '#bbdefb',
     fontWeight: '600',
+  },
+  name: {
+    fontSize: 45,
+    fontWeight: '700',
+    marginVertical: 10,
+    color: 'white',
+  },
+  metadata: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  followersText: {
+    fontSize: 16,
+    marginLeft: 6,
+    fontWeight: '500',
+    color: '#bbdefb',
+  },
+  totalViewers: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 20,
+  },
+  totalViewersText: {
+    fontSize: 16,
+    marginLeft: 6,
+    fontWeight: '500',
+    color: '#bbdefb',
+  },
+  followingButtonRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginVertical: 20,
+  },
+  followingButton: {
+    backgroundColor: '#3643FF',
+    width: '40%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+  },
+  buttonText: {
+    paddingVertical: 10,
+    fontSize: 20,
+    color: 'white',
+    fontWeight: '600',
+  },
+  channelsContainer: {
+    width: 180,
+    height: 100,
+    marginBottom: 20,
+    borderRadius: 5,
+    overflow: 'hidden',
+  },
+  liveButton: {
+    flexDirection: 'row',
+    marginLeft: 15,
+    paddingTop: 75,
+  },
+  liveText: {
+    fontSize: 15,
+    color: 'white',
+    fontWeight: '600',
+    marginLeft: 5,
+  },
+  streamTitle: {
+    color: 'white',
+    marginLeft: 15,
+    fontSize: 18,
+    fontWeight: '700',
+    marginBottom: 10, //change to 5 if you include streamer name
+  },
+  streamViews: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 15,
+    marginBottom: 5,
+  },
+  streamViewsText: {
+    fontSize: 16,
+    marginLeft: 6,
+    fontWeight: '500',
+    color: '#bbdefb',
+  },
+  streamer: {
+    fontSize: 15,
+    marginLeft: 15,
+    fontWeight: '500',
+    color: '#bbdefb',
+    marginBottom: 5,
   },
 });
