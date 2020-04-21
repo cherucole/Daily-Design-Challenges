@@ -6,6 +6,7 @@ import {
   ImageBackground,
   StatusBar,
   Image,
+  TouchableHighlight,
 } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -24,7 +25,7 @@ const SectionHeader = props => {
 export const games = [
   {
     name: 'Apex Legends',
-    image: require('../assets/apex.jpg'),
+    image: require('../assets/apexhd.jpg'),
     views: '257.3k',
   },
   {
@@ -103,18 +104,26 @@ const HomePage = props => {
             showsHorizontalScrollIndicator={false}
             style={{ marginLeft: 10 }}>
             {games.map(game => (
-              <View style={styles.thumbnails}>
-                <Image style={styles.thumbnailImage} source={game.image} />
-                <View>
-                  <Text style={styles.gameName}>{game.name}</Text>
-                  <View style={styles.metadata}>
-                    <Ionicons name="md-eye" size={24} color="#bbdefb" />
-                    <Text style={{ color: '#bbdefb' }}>
-                      {game.views} viewers
-                    </Text>
+              <TouchableHighlight
+                onPress={() =>
+                  props.navigation.navigate('Details', {
+                    game: game,
+                    streams: streams,
+                  })
+                }>
+                <View style={styles.thumbnails}>
+                  <Image style={styles.thumbnailImage} source={game.image} />
+                  <View>
+                    <Text style={styles.gameName}>{game.name}</Text>
+                    <View style={styles.metadata}>
+                      <Ionicons name="md-eye" size={24} color="#bbdefb" />
+                      <Text style={{ color: '#bbdefb' }}>
+                        {game.views} viewers
+                      </Text>
+                    </View>
                   </View>
                 </View>
-              </View>
+              </TouchableHighlight>
             ))}
           </ScrollView>
         </View>
