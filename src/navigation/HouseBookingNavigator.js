@@ -59,7 +59,7 @@ const DashboardTabNavigator = createBottomTabNavigator(
   {
     tabBarOptions: {
       showLabel: false,
-      activeTintColor: '#0d47a1',
+      activeTintColor: '#4A5EDF',
       inactiveTintColor: '#bdbdbd',
       style: {
         backgroundColor: '#f5f5f5',
