@@ -9,3 +9,7 @@
 # 2. Stream App - preview
 
 ![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/Streaming/assets/streamer.gif?raw=true)
+
+# 3. House/Rentals Booking App - preview
+
+![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/HouseBooking/assets/house.png?raw=true)
