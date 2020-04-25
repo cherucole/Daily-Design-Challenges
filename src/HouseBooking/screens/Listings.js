@@ -42,6 +42,9 @@ export const Houses = [
 ];
 
 const Listings = props => {
+  const onPressHandler = () => {
+    props.navigation.navigate('Details');
+  };
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -70,11 +73,10 @@ const Listings = props => {
             avatar1={house.avatar1}
             avatar2={house.avatar2}
             tags={house.tags}
+            onPressCard={onPressHandler}
           />
         ))}
       </ScrollView>
-      {/* <ListingCard />
-      <ListingCard /> */}
     </View>
   );
 };
