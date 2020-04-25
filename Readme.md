@@ -12,4 +12,4 @@
 
 # 3. House/Rentals Booking App - preview
 
-![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/HouseBooking/assets/house.png?raw=true)
+![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/HouseBooking/assets/house.gif?raw=true)
