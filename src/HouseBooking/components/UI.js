@@ -5,14 +5,14 @@ import {
   StyleSheet,
   ImageBackground,
   Image,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 
 export const ListingCard = props => {
   return (
-    <TouchableOpacity onPress={props.onPressCard}>
+    <TouchableWithoutFeedback onPress={props.onPressCard}>
       <View style={styles.cardContainer}>
         <View style={styles.inforCard}>
           <View style={styles.card}>
@@ -97,7 +97,7 @@ export const ListingCard = props => {
           </ImageBackground>
         </View>
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 };
 
