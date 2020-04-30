@@ -8,7 +8,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from '../JobSearch/screens/HomePage';
-import Details from '../HouseBooking/screens/Details';
+import Details from '../JobSearch/screens/JobDetail';
 import Settings from '../JobSearch/screens/Settings';
 import Profile from '../JobSearch/screens/Profile';
 import Favorites from '../JobSearch/screens/Favorites';

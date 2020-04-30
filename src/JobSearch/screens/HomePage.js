@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, Alert } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { Cards, CatCard } from '../components/UI';
@@ -38,24 +38,28 @@ export const jobs = [
 ];
 export const Categories = [
   {
+    id: 1,
     name: 'Design',
     backgroundColor: '#b3e5fc',
     imageColor: '#29b6f6',
     image: require('../assets/design.png'),
   },
   {
+    id: 2,
     name: 'Developer',
     backgroundColor: '#fbe9e7',
     imageColor: '#ff7043',
     image: require('../assets/coding.png'),
   },
   {
+    id: 3,
     name: 'Business',
     backgroundColor: '#b2dfdb',
     imageColor: '#26a69a',
     image: require('../assets/wallet.png'),
   },
   {
+    id: 4,
     name: 'Office',
     backgroundColor: '#b3e5fc',
     imageColor: '#29b6f6',
@@ -107,6 +111,7 @@ const HomePage = props => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {jobs.map(job => (
             <Cards
+              onCardPress={() => props.navigation.navigate('Details', { job })}
               key={job.id}
               logo={job.logo}
               company={job.company}
@@ -127,6 +132,7 @@ const HomePage = props => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {Categories.map(category => (
             <CatCard
+              key={category.id}
               backgroundColor={category.backgroundColor}
               name={category.name}
               imageColor={category.imageColor}
