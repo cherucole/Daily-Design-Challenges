@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 
@@ -17,115 +17,55 @@ const JobDetail = props => {
       <View style={styles.header}>
         <View style={styles.navigation}>
           <View>
-            <Ionicons name="ios-arrow-back" color="black" size={30} />
+            <Ionicons
+              name="ios-arrow-back"
+              color="black"
+              size={30}
+              onPress={() => props.navigation.goBack()}
+            />
           </View>
           <View style={styles.company}>
             <Text style={styles.name}>{job.company}</Text>
           </View>
         </View>
       </View>
-      <View
-        style={{
-          flex: 1,
-          marginTop: -40,
-          borderTopLeftRadius: 50,
-          borderTopRightRadius: 50,
-          zIndex: 10,
-          backgroundColor: 'white',
-        }}>
-        <View
-          style={{
-            width: '18%',
-            backgroundColor: '#eeeeee',
-            height: 6,
-            alignSelf: 'center',
-            borderRadius: 10,
-            marginTop: 20,
-          }}
-        />
-        <View
-          style={{
-            alignSelf: 'center',
-            marginVertical: 40,
-          }}>
+      <View style={styles.body}>
+        <View style={styles.scrollerTop} />
+        <View style={styles.logo}>
           <Image style={{ height: 55, width: 55 }} source={job.logo} />
         </View>
-        <View
-          style={{
-            width: '70%',
-            alignSelf: 'center',
-          }}>
+        <View style={styles.job}>
           <Text
             style={{ fontSize: 30, fontWeight: '600', textAlign: 'center' }}>
             {job.job}
           </Text>
         </View>
-        <Text
-          style={{
-            textAlign: 'center',
-            fontSize: 18,
-            color: 'gray',
-            fontWeight: '500',
-            marginVertical: 15,
-          }}>
-          New York, NY
-        </Text>
-        <View
-          style={{
-            width: '70%',
-            alignSelf: 'center',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginTop: 10,
-          }}>
-          <View
-            style={{
-              backgroundColor: '#eeeeee',
-              borderRadius: 8,
-              height: 50,
-              paddingHorizontal: 20,
-              justifyContent: 'center',
-            }}>
-            <Text style={{ fontSize: 18, fontWeight: '500' }}>{job.type}</Text>
+        <Text style={styles.location}>{job.location}</Text>
+        <View style={styles.metadata}>
+          <View style={styles.type}>
+            <Text
+              style={{ fontSize: 18, fontWeight: '500', color: job.fontColor }}>
+              {job.type}
+            </Text>
           </View>
-          <Text style={{ fontSize: 38, fontWeight: '300' }}>$60/h</Text>
+          <Text style={{ fontSize: 38, fontWeight: '300' }}>${job.pay}/h</Text>
         </View>
         <View style={{ marginTop: 30 }}>
-          <Text
-            style={{
-              fontSize: 18,
-              fontWeight: '600',
-              marginLeft: 25,
-              marginVertical: 20,
-            }}>
-            Requirements
-          </Text>
+          <Text style={styles.requirementHeading}>Requirements</Text>
           <View>
-            {Requirements.map(requirement => (
-              <View
-                style={{
-                  marginLeft: 25,
-                  marginRight: 40,
-                  flexDirection: 'row',
-                  marginBottom: 15,
-                }}>
-                <View>
-                  <Entypo name="dot-single" size={20} color="#616161" />
+            <ScrollView>
+              {Requirements.map(requirement => (
+                <View style={styles.requirement}>
+                  <View>
+                    <Entypo name="dot-single" size={20} color="#616161" />
+                  </View>
+                  <Text style={styles.requirementText}>{requirement}</Text>
                 </View>
-                <Text
-                  style={{ fontSize: 16, fontWeight: '500', color: '#616161' }}>
-                  {requirement}
-                </Text>
-              </View>
-            ))}
+              ))}
+            </ScrollView>
           </View>
         </View>
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 20,
-            width: '100%',
-          }}>
+        <View style={styles.ctaContainer}>
           <View style={styles.callToAction}>
             <View style={styles.like}>
               <Ionicons name="md-heart-empty" size={26} color="#FF4243" />
@@ -148,7 +88,7 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 20,
-    paddingTop: 50,
+    paddingTop: 55,
     backgroundColor: '#eeeeee',
 
     height: 160,
@@ -156,6 +96,30 @@ const styles = StyleSheet.create({
   navigation: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  body: {
+    flex: 1,
+    marginTop: -40,
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
+    zIndex: 10,
+    backgroundColor: 'white',
+  },
+  scrollerTop: {
+    width: '18%',
+    backgroundColor: '#eeeeee',
+    height: 6,
+    alignSelf: 'center',
+    borderRadius: 10,
+    marginTop: 20,
+  },
+  logo: {
+    alignSelf: 'center',
+    marginVertical: 40,
+  },
+  job: {
+    width: '70%',
+    alignSelf: 'center',
   },
   company: {
     flex: 1,
@@ -165,13 +129,54 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '500',
   },
+  location: {
+    textAlign: 'center',
+    fontSize: 18,
+    color: 'gray',
+    fontWeight: '500',
+    marginVertical: 15,
+  },
+  metadata: {
+    width: '70%',
+    alignSelf: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10,
+  },
+  type: {
+    backgroundColor: '#eeeeee',
+    borderRadius: 8,
+    height: 50,
+    paddingHorizontal: 20,
+    justifyContent: 'center',
+  },
+  requirementHeading: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginLeft: 25,
+    marginVertical: 20,
+  },
+  requirement: {
+    marginLeft: 25,
+    marginRight: 40,
+    flexDirection: 'row',
+    marginBottom: 15,
+  },
+  requirementText: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#616161',
+  },
+  ctaContainer: {
+    position: 'absolute',
+    bottom: 20,
+    width: '100%',
+  },
   callToAction: {
     marginHorizontal: 40,
     flexDirection: 'row',
     marginVertical: 20,
     justifyContent: 'space-between',
-    // position: 'absolute',
-    // bottom: 20,
   },
   like: {
     backgroundColor: '#eeeeee',
