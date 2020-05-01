@@ -13,6 +13,7 @@ import Settings from '../JobSearch/screens/Settings';
 import Profile from '../JobSearch/screens/Profile';
 import Favorites from '../JobSearch/screens/Favorites';
 import Add from '../JobSearch/screens/Add';
+import Category from '../JobSearch/screens/CatListing';
 
 const DashboardTabNavigator = createBottomTabNavigator(
   {
@@ -85,6 +86,7 @@ const MainNavigator = createStackNavigator(
   {
     DashboardTabNavigator: DashboardTabNavigator,
     Details: Details,
+    Category: Category,
   },
   {
     defaultNavigationOptions: {

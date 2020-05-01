@@ -79,34 +79,36 @@ export const Cards = props => {
 };
 export const CatCard = props => {
   return (
-    <View
-      style={{
-        backgroundColor: props.backgroundColor,
-        width: 112,
-        marginRight: 10,
-        borderRadius: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
+    <TouchableWithoutFeedback onPress={props.onPressCategory}>
       <View
         style={{
-          backgroundColor: props.imageColor,
-          height: 65,
-          width: 65,
-          marginBottom: 10,
-          borderRadius: 50,
+          backgroundColor: props.backgroundColor,
+          width: 112,
+          marginRight: 10,
+          borderRadius: 5,
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Image
-          style={{ height: '65%', width: '65%', tintColor: 'white' }}
-          source={props.image}
-        />
+        <View
+          style={{
+            backgroundColor: props.imageColor,
+            height: 65,
+            width: 65,
+            marginBottom: 10,
+            borderRadius: 50,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Image
+            style={{ height: '65%', width: '65%', tintColor: 'white' }}
+            source={props.image}
+          />
+        </View>
+        <Text style={{ fontWeight: '600', color: '#616161', fontSize: 16 }}>
+          {props.name}
+        </Text>
       </View>
-      <Text style={{ fontWeight: '600', color: '#616161', fontSize: 16 }}>
-        {props.name}
-      </Text>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

@@ -16,6 +16,7 @@ export const jobs = [
     color: '#fbe9e7',
     fontColor: '#ff7043',
     pay: 60,
+    liked: false,
   },
   {
     id: 2,
@@ -28,6 +29,7 @@ export const jobs = [
     color: '#b2dfdb',
     fontColor: '#26a69a',
     pay: 55,
+    liked: true,
   },
   {
     id: 3,
@@ -40,6 +42,7 @@ export const jobs = [
     color: '#b3e5fc',
     fontColor: '#29b6f6',
     pay: 70,
+    liked: false,
   },
 ];
 export const Categories = [
@@ -138,6 +141,9 @@ const HomePage = props => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {Categories.map(category => (
             <CatCard
+              onPressCategory={() =>
+                props.navigation.navigate('Category', { category })
+              }
               key={category.id}
               backgroundColor={category.backgroundColor}
               name={category.name}
