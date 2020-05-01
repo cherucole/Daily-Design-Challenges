@@ -8,7 +8,7 @@
 
 # 2. Job Search App - preview
 
-![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/JobSearch/assets/job.gif?raw=true)
+![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/JobSearch/assets/jobsearch.gif?raw=true)
 
 # 3. House/Rentals Booking App - preview
 
