@@ -6,6 +6,8 @@ import {
   ScrollView,
   Image,
   TouchableHighlight,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
   Alert,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -15,14 +17,14 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 export const data = [
   {
-    name: 'Ora Murray',
-    time: '09 Jan 2020, 8am - 10am',
-    image: require('../assets/pass2.jpg'),
-  },
-  {
     name: 'Louis Patterson',
     time: '09 Jan 2020, 8am - 10am',
     image: require('../assets/pass3.jpg'),
+  },
+  {
+    name: 'Ora Murray',
+    time: '09 Jan 2020, 8am - 10am',
+    image: require('../assets/pass2.jpg'),
   },
   {
     name: 'Dorothy Nelson',
@@ -47,59 +49,61 @@ const Home = props => (
       </Text>
       <Text style={styles.docName}>Dr. Peterson</Text>
     </View>
-    <TouchableHighlight
-      style={styles.mainCard}
-      onPress={() => props.navigation.navigate('Details', { item: data[0] })}>
-      <View style={{ height: '100%', overflow: 'hidden', borderRadius: 24 }}>
-        <View
-          style={{ backgroundColor: '#297AFF', height: '33%', padding: 20 }}>
+    <View style={styles.mainCard}>
+      <TouchableWithoutFeedback
+        onPress={() => props.navigation.navigate('Details', { item: data[0] })}>
+        <View style={{ height: '100%', overflow: 'hidden', borderRadius: 24 }}>
           <View
-            style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <Text style={styles.cardMeta}>Appointment Request</Text>
-            <Entypo name="dots-two-vertical" size={20} color="white" />
+            style={{ backgroundColor: '#297AFF', height: '33%', padding: 20 }}>
+            <View
+              style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+              <Text style={styles.cardMeta}>Appointment Request</Text>
+              <Entypo name="dots-two-vertical" size={20} color="white" />
+            </View>
+            <View style={styles.cardTime}>
+              <AntDesign name="clockcircle" color="white" size={24} />
+              <Text style={styles.cardTimeText}>12 Jan 2020, 8am - 10am</Text>
+            </View>
           </View>
-          <View style={styles.cardTime}>
-            <AntDesign name="clockcircle" color="white" size={24} />
-            <Text style={styles.cardTimeText}>12 Jan 2020, 8am - 10am</Text>
-          </View>
-        </View>
-        <View style={styles.imageRow}>
-          <View style={styles.imageNameContainer}>
-            <View style={styles.imageContainer}>
-              <Image
-                source={data[0].image}
-                style={{ height: '100%', width: '100%' }}
+          <View style={styles.imageRow}>
+            <View style={styles.imageNameContainer}>
+              <View style={styles.imageContainer}>
+                <Image
+                  source={data[0].image}
+                  style={{ height: '100%', width: '100%' }}
+                />
+              </View>
+              <View style={{ width: '53%' }}>
+                <Text style={{ fontSize: 25, fontWeight: '500' }}>
+                  {data[0].name}
+                </Text>
+              </View>
+            </View>
+            <View>
+              <Feather
+                name="info"
+                size={34}
+                color="#297AFF"
+                style={{ marginRight: 10 }}
               />
             </View>
-            <View style={{ width: '53%' }}>
-              <Text style={{ fontSize: 25, fontWeight: '500' }}>
-                {data[0].name}
+          </View>
+          <View style={styles.cta}>
+            <View style={styles.accept}>
+              <Text style={{ fontSize: 18, fontWeight: '600', color: 'white' }}>
+                ACCEPT
+              </Text>
+            </View>
+            <View style={styles.decline}>
+              <Text
+                style={{ fontSize: 18, color: '#2C3650', fontWeight: '600' }}>
+                DECLINE
               </Text>
             </View>
           </View>
-          <View>
-            <Feather
-              name="info"
-              size={34}
-              color="#297AFF"
-              style={{ marginRight: 10 }}
-            />
-          </View>
         </View>
-        <View style={styles.cta}>
-          <View style={styles.accept}>
-            <Text style={{ fontSize: 18, fontWeight: '600', color: 'white' }}>
-              ACCEPT
-            </Text>
-          </View>
-          <View style={styles.decline}>
-            <Text style={{ fontSize: 18, color: '#2C3650', fontWeight: '600' }}>
-              DECLINE
-            </Text>
-          </View>
-        </View>
-      </View>
-    </TouchableHighlight>
+      </TouchableWithoutFeedback>
+    </View>
     <Text style={styles.nextApp}>Next Appointments</Text>
 
     <View>
@@ -146,6 +150,7 @@ const styles = StyleSheet.create({
     color: '#2C3650',
   },
   mainCard: {
+    marginHorizontal: 5,
     backgroundColor: 'white',
     height: 280,
     borderRadius: 24,

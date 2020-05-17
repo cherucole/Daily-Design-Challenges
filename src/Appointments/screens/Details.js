@@ -29,8 +29,13 @@ const Details = props => {
               justifyContent: 'space-between',
               alignItems: 'center',
             }}>
-            <Ionicons name="md-arrow-back" size={25} color="white" />
-            <Text style={{ fontSize: 17, color: 'white' }}>
+            <Ionicons
+              name="md-arrow-back"
+              size={25}
+              color="white"
+              onPress={() => props.navigation.goBack()}
+            />
+            <Text style={{ fontSize: 17, color: 'white', opacity: 0.8 }}>
               Appointment Request
             </Text>
           </View>
@@ -91,7 +96,7 @@ const Details = props => {
           marginLeft: 60,
           marginRight: 40,
         }}>
-        <View style={{ width: '50%', marginVertical: 20 }}>
+        <View style={{ width: '55%', marginVertical: 20 }}>
           <Text style={{ fontSize: 35, fontWeight: '700' }}>{item.name}</Text>
         </View>
         <Text
@@ -129,7 +134,7 @@ const Details = props => {
             <MaterialIcons
               name="attach-file"
               size={30}
-              color="green"
+              color="#00acc1"
               style={{ transform: [{ rotate: '40deg' }] }}
             />
             <View style={{ marginLeft: 20 }}>
