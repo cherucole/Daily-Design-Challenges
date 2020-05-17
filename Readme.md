@@ -14,6 +14,10 @@
 
 ![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/HouseBooking/assets/housing.gif?raw=true)
 
-# 4. Stream App - preview
+# 4. Doctor Appointment App - preview
+
+![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/Appointments/assets/doc.gif?raw=true)
+
+# 5. Stream App - preview
 
 ![Design Challenge](https://github.com/cherucole/Daily-Design-Challenges/blob/master/src/Streaming/assets/gaming.gif?raw=true)
