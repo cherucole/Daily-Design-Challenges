@@ -1,5 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Image,
+  TouchableHighlight,
+  Alert,
+} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
@@ -39,7 +47,9 @@ const Home = props => (
       </Text>
       <Text style={styles.docName}>Dr. Peterson</Text>
     </View>
-    <View style={styles.mainCard}>
+    <TouchableHighlight
+      style={styles.mainCard}
+      onPress={() => props.navigation.navigate('Details', { item: data[0] })}>
       <View style={{ height: '100%', overflow: 'hidden', borderRadius: 24 }}>
         <View
           style={{ backgroundColor: '#297AFF', height: '33%', padding: 20 }}>
@@ -89,7 +99,7 @@ const Home = props => (
           </View>
         </View>
       </View>
-    </View>
+    </TouchableHighlight>
     <Text style={styles.nextApp}>Next Appointments</Text>
 
     <View>
@@ -214,8 +224,8 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     paddingHorizontal: 20,
     paddingVertical: 10,
-    borderColor: '#297AFF',
-    borderWidth: 0.5,
+    // borderColor: '#297AFF',
+    // borderWidth: 0.5,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
