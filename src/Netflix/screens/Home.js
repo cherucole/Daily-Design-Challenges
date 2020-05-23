@@ -49,7 +49,7 @@ const Home = props => {
               />
             </View>
           </View>
-          <View style={{ marginTop: 500 }}>
+          <View style={{ marginTop: 470 }}>
             <Text
               style={{
                 color: 'white',
@@ -102,6 +102,22 @@ const Home = props => {
                 {`2020  •  Documentary  •  Biography`}
               </Text>
             </View>
+            <LinearGradient
+              colors={[
+                'rgba(0,0,0,0.1)',
+                'rgba(246, 18, 49,1)',
+                'rgba(0,0,0,0.1)',
+              ]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={{
+                height: 2,
+                marginTop: 5,
+                marginBottom: 20,
+                width: 300,
+                alignSelf: 'center',
+              }}
+            />
             <View
               style={{
                 backgroundColor: '#F71131',
@@ -109,7 +125,7 @@ const Home = props => {
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: 30,
+                height: 34,
                 alignSelf: 'center',
                 borderRadius: 2,
               }}>
