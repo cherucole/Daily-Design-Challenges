@@ -70,6 +70,60 @@ const Home = props => {
               }}>
               THE LAST DANCE
             </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginHorizontal: 68,
+                justifyContent: 'space-between',
+                marginTop: 15,
+              }}>
+              <View style={styles.movieMetadata}>
+                <Text style={{ fontWeight: '600' }}>Popular with friends</Text>
+              </View>
+              <View style={styles.movieMetadata}>
+                <Text style={{ fontWeight: '600' }}>12+</Text>
+              </View>
+              <View
+                style={{ ...styles.movieMetadata, backgroundColor: '#FFB34B' }}>
+                <Text style={{ fontWeight: '900' }}>
+                  IMDb <Text style={{ fontWeight: '600' }}>9.4</Text>
+                </Text>
+              </View>
+            </View>
+            <View>
+              <Text
+                style={{
+                  fontSize: 13,
+                  color: 'white',
+                  fontWeight: '600',
+                  alignSelf: 'center',
+                  marginVertical: 15,
+                }}>
+                {`2020  •  Documentary  •  Biography`}
+              </Text>
+            </View>
+            <View
+              style={{
+                backgroundColor: '#F71131',
+                width: 160,
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: 30,
+                alignSelf: 'center',
+                borderRadius: 2,
+              }}>
+              <MaterialIcons name="play-arrow" size={24} color="white" />
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: 15,
+                  fontWeight: '800',
+                  marginLeft: 5,
+                }}>
+                Next Episode
+              </Text>
+            </View>
           </View>
         </LinearGradient>
       </ImageBackground>
@@ -89,5 +143,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     height: '100%',
+  },
+  movieMetadata: {
+    backgroundColor: 'white',
+    padding: 5,
+    borderRadius: 2,
   },
 });
