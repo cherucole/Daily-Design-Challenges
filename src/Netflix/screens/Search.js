@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Search = props => (
-  <View style={styles.container}>
-    <Text>Search</Text>
-  </View>
-);
+const Search = props => {
+  return (
+    <View style={styles.container}>
+      <Text>Search</Text>
+    </View>
+  );
+};
 export default Search;
 
 const styles = StyleSheet.create({

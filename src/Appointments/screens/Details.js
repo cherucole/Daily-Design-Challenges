@@ -9,128 +9,42 @@ const Details = props => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
-      <View
-        style={{
-          paddingTop: 60,
-          backgroundColor: '#2879FF',
-          height: '40%',
-          borderBottomRightRadius: 120,
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            paddingHorizontal: 25,
-            justifyContent: 'space-between',
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              width: '57%',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
+      <View style={styles.blueHeader}>
+        <View style={styles.headerNav}>
+          <View style={styles.headerLeft}>
             <Ionicons
               name="md-arrow-back"
               size={25}
               color="white"
               onPress={() => props.navigation.goBack()}
             />
-            <Text style={{ fontSize: 17, color: 'white', opacity: 0.8 }}>
-              Appointment Request
-            </Text>
+            <Text style={styles.headerTitle}>Appointment Request</Text>
           </View>
           <Entypo name="dots-two-vertical" size={25} color="white" />
         </View>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Text
-            style={{
-              fontSize: 35,
-              width: 220,
-              fontWeight: '700',
-              color: 'white',
-            }}>
-            {item.time}
-          </Text>
+        <View style={styles.timeContainer}>
+          <Text style={styles.timeText}>{item.time}</Text>
         </View>
       </View>
-      <View
-        style={{ flexDirection: 'row', marginTop: -60, alignItems: 'center' }}>
-        <View
-          style={{
-            height: 100,
-            width: 100,
-            borderRadius: 35,
-            overflow: 'hidden',
-            borderWidth: 6,
-            borderColor: 'white',
-            marginLeft: 85,
-          }}>
-          <Image
-            source={item.image}
-            style={{ height: '100%', width: '100%' }}
-          />
+      <View style={styles.imageRow}>
+        <View style={styles.imageContainer}>
+          <Image source={item.image} style={styles.image} />
         </View>
-        <View
-          style={{
-            width: 60,
-            height: 60,
-            backgroundColor: '#3FCDFF',
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: 30,
-            borderWidth: 5,
-            borderColor: 'white',
-            marginTop: 15,
-            marginLeft: 30,
-          }}>
+        <View style={styles.callContainer}>
           <Ionicons name="md-call" size={24} color="white" />
         </View>
       </View>
-      <View
-        style={{
-          marginLeft: 60,
-          marginRight: 40,
-        }}>
-        <View style={{ width: '55%', marginVertical: 20 }}>
-          <Text style={{ fontSize: 35, fontWeight: '700' }}>{item.name}</Text>
+      <View style={styles.content}>
+        <View style={styles.nameContainer}>
+          <Text style={styles.nameText}>{item.name}</Text>
         </View>
-        <Text
-          style={{
-            fontSize: 15,
-            fontWeight: '500',
-            color: '#7283a7',
-            marginBottom: 10,
-          }}>
-          Comment:
-        </Text>
-        <Text style={{ fontSize: 17, lineHeight: 28 }}>
-          Hello Dr. Peterson,
-        </Text>
-        <Text style={{ fontSize: 17, lineHeight: 28 }}>
+        <Text style={styles.comment}>Comment:</Text>
+        <Text style={styles.commentText}>Hello Dr. Peterson,</Text>
+        <Text style={styles.commentText}>
           I am going to bring my complete red blood analysis with me
         </Text>
-        <View
-          style={{
-            height: 80,
-            backgroundColor: '#e0f7fa',
-            justifyContent: 'center',
-            marginTop: 20,
-            borderRadius: 8,
-          }}>
-          <View
-            style={{
-              height: 65,
-              borderLeftColor: '#00acc1',
-              borderLeftWidth: 3,
-              flexDirection: 'row',
-              paddingLeft: 10,
-              paddingTop: 5,
-            }}>
+        <View style={styles.attachment}>
+          <View style={styles.attachRow}>
             <MaterialIcons
               name="attach-file"
               size={30}
@@ -138,57 +52,19 @@ const Details = props => {
               style={{ transform: [{ rotate: '40deg' }] }}
             />
             <View style={{ marginLeft: 20 }}>
-              <Text
-                style={{
-                  marginBottom: 10,
-                  fontSize: 17,
-                  fontWeight: '500',
-                  color: '#004d40',
-                }}>
-                Complete blood Count
-              </Text>
-              <Text
-                style={{
-                  fontSize: 16,
-                  fontWeight: '500',
-                  color: '#004d40',
-                  opacity: 0.7,
-                }}>
-                05 March 2020
-              </Text>
+              <Text style={styles.fileName}>Complete blood Count</Text>
+              <Text style={styles.attachmentDate}>05 March 2020</Text>
             </View>
           </View>
         </View>
       </View>
 
-      <View
-        style={{
-          flexDirection: 'row',
-          marginHorizontal: 30,
-          justifyContent: 'space-between',
-          marginTop: 40,
-        }}>
-        <View style={{ backgroundColor: '#256FFF', borderRadius: 25 }}>
-          <Text
-            style={{
-              paddingHorizontal: 60,
-              paddingVertical: 15,
-              color: 'white',
-              fontWeight: '600',
-            }}>
-            ACCEPT
-          </Text>
+      <View style={styles.cta}>
+        <View style={styles.accept}>
+          <Text style={styles.acceptText}>ACCEPT</Text>
         </View>
-        <View style={{ backgroundColor: '#EBEFFA', borderRadius: 25 }}>
-          <Text
-            style={{
-              paddingHorizontal: 28,
-              paddingVertical: 15,
-              color: '#2C3650',
-              fontWeight: '600',
-            }}>
-            DECLINE
-          </Text>
+        <View style={{ ...styles.accept, backgroundColor: '#EBEFFA' }}>
+          <Text style={styles.declineText}>DECLINE</Text>
         </View>
       </View>
     </View>
@@ -200,5 +76,139 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+  },
+  blueHeader: {
+    paddingTop: 60,
+    backgroundColor: '#2879FF',
+    height: '40%',
+    borderBottomRightRadius: 120,
+  },
+  headerNav: {
+    flexDirection: 'row',
+    paddingHorizontal: 25,
+    justifyContent: 'space-between',
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    width: '57%',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 17,
+    color: 'white',
+    opacity: 0.8,
+  },
+  timeContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  timeText: {
+    fontSize: 35,
+    width: 220,
+    fontWeight: '700',
+    color: 'white',
+  },
+  imageRow: {
+    flexDirection: 'row',
+    marginTop: -60,
+    alignItems: 'center',
+  },
+  imageContainer: {
+    height: 100,
+    width: 100,
+    borderRadius: 35,
+    overflow: 'hidden',
+    borderWidth: 6,
+    borderColor: 'white',
+    marginLeft: 85,
+  },
+  image: {
+    height: '100%',
+    width: '100%',
+  },
+  callContainer: {
+    width: 60,
+    height: 60,
+    backgroundColor: '#3FCDFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 30,
+    borderWidth: 5,
+    borderColor: 'white',
+    marginTop: 15,
+    marginLeft: 30,
+  },
+  content: {
+    marginLeft: 60,
+    marginRight: 40,
+  },
+  nameContainer: {
+    width: '55%',
+    marginVertical: 20,
+  },
+  nameText: {
+    fontSize: 35,
+    fontWeight: '700',
+  },
+  comment: {
+    fontSize: 15,
+    fontWeight: '500',
+    color: '#7283a7',
+    marginBottom: 10,
+  },
+  commentText: {
+    fontSize: 17,
+    lineHeight: 28,
+  },
+  attachment: {
+    height: 80,
+    backgroundColor: '#e0f7fa',
+    justifyContent: 'center',
+    marginTop: 20,
+    borderRadius: 8,
+  },
+  attachRow: {
+    height: 65,
+    borderLeftColor: '#00acc1',
+    borderLeftWidth: 3,
+    flexDirection: 'row',
+    paddingLeft: 10,
+    paddingTop: 5,
+  },
+  fileName: {
+    marginBottom: 10,
+    fontSize: 17,
+    fontWeight: '500',
+    color: '#004d40',
+  },
+  attachmentDate: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#004d40',
+    opacity: 0.7,
+  },
+  cta: {
+    flexDirection: 'row',
+    marginHorizontal: 30,
+    justifyContent: 'space-between',
+    marginTop: 40,
+  },
+  accept: {
+    backgroundColor: '#256FFF',
+    borderRadius: 25,
+  },
+  acceptText: {
+    paddingHorizontal: 60,
+    paddingVertical: 15,
+    color: 'white',
+    fontWeight: '600',
+  },
+  declineText: {
+    paddingHorizontal: 28,
+    paddingVertical: 15,
+    color: '#2C3650',
+    fontWeight: '600',
   },
 });
