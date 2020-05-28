@@ -10,6 +10,10 @@ let data = [
   { id: 6, name: 'Vincent', color: 'orange' },
   { id: 7, name: 'Shaddy', color: 'grey' },
   { id: 8, name: 'Lenny', color: 'violet' },
+  { id: 9, name: 'Mercy', color: 'tomato' },
+  { id: 10, name: 'Vincent', color: 'maroon' },
+  { id: 11, name: 'Shaddy', color: 'beige' },
+  { id: 12, name: 'Lenny', color: 'indigo' },
 ];
 
 const marginGen = id => {
