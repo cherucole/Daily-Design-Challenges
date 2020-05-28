@@ -7,7 +7,7 @@ import AppointmentNav from './src/navigation/AppointmentNav';
 import NetflixNavigator from './src/navigation/NetflixNavigator';
 
 const App = props => {
-  return <AppointmentNav />;
+  return <NetflixNavigator />;
 };
 
 export default App;
