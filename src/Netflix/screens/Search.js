@@ -2,18 +2,18 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
 let data = [
-  { id: 1, name: 'Gibson', color: 'red' },
-  { id: 2, name: 'Collins', color: 'blue' },
-  { id: 3, name: 'Emmanuel', color: 'green' },
-  { id: 4, name: 'Naomi', color: 'pink' },
-  { id: 5, name: 'Mercy', color: 'yellow' },
-  { id: 6, name: 'Vincent', color: 'orange' },
-  { id: 7, name: 'Shaddy', color: 'grey' },
-  { id: 8, name: 'Lenny', color: 'violet' },
+  { id: 1, name: 'Gibson', color: '#ff4444' },
+  { id: 2, name: 'Collins', color: '#FF8800' },
+  { id: 3, name: 'Emmanuel', color: '#00C851' },
+  { id: 4, name: 'Naomi', color: '#33b5e5' },
+  { id: 5, name: 'Mercy', color: '#CC0000' },
+  { id: 6, name: 'Vincent', color: '#2BBBAD' },
+  { id: 7, name: 'Shaddy', color: '#9933CC' },
+  { id: 8, name: 'Lenny', color: '#ffff00' },
   { id: 9, name: 'Mercy', color: 'tomato' },
-  { id: 10, name: 'Vincent', color: 'maroon' },
-  { id: 11, name: 'Shaddy', color: 'beige' },
-  { id: 12, name: 'Lenny', color: 'indigo' },
+  { id: 10, name: 'Vincent', color: '#311b92' },
+  { id: 11, name: 'Shaddy', color: '#ff4081' },
+  { id: 12, name: 'Lenny', color: '#3F729B' },
 ];
 
 const marginGen = id => {
