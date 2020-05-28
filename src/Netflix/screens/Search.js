@@ -36,14 +36,22 @@ const Item = ({ item }) => {
   return (
     <View
       style={{
-        backgroundColor: item.color,
+        // backgroundColor: item.color,
         width: item.id % 4 == 0 ? '100%' : '50%',
         height: heightGen(item.id),
         marginTop: marginGen(item.id),
-        alignItems: 'center',
-        justifyContent: 'center',
       }}>
-      <Text>{item.name}</Text>
+      <View
+        style={{
+          backgroundColor: item.color,
+          margin: 2,
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: 5,
+        }}>
+        <Text>{item.name}</Text>
+      </View>
     </View>
   );
 };
