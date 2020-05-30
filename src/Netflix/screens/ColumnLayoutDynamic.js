@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, FlatList } from 'react-native';
 
 let data = [
   { id: 1, name: 'Arsenal', color: '#ff4444' },
@@ -32,6 +32,15 @@ const heightGen = id => {
   return 150;
 };
 
+const marginLeft = id => {
+  if (id % 4 === 0) {
+    return -207;
+  } else if (id % 2 === 0) {
+    return 0;
+  }
+  return 0;
+};
+
 const Item = ({ item }) => {
   return (
     <View
@@ -40,6 +49,7 @@ const Item = ({ item }) => {
         width: item.id % 4 == 0 ? '100%' : '50%',
         height: heightGen(item.id),
         marginTop: marginGen(item.id),
+        marginLeft: marginLeft(item.id),
       }}>
       <View
         style={{
@@ -56,24 +66,25 @@ const Item = ({ item }) => {
   );
 };
 
-const Search = props => {
+const ColumnLayout = props => {
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        {data.map(item => (
-          <Item item={item} /> //can also be <Item {...{ item }} />
-        ))}
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <FlatList
+        data={data}
+        numColumns={2}
+        renderItem={({ item }) => <Item item={item} />}
+        keyExtractor={item => item.color}
+      />
+    </View>
   );
 };
-export default Search;
+export default ColumnLayout;
 
 const styles = StyleSheet.create({
   container: {
-    flexWrap: 'wrap', //makes content fit in the screen
+    // flexWrap: 'wrap', //makes content fit in the screen
     // flex: 1,
     paddingTop: 60,
-    flexDirection: 'row',
+    // flexDirection: 'row',
   },
 });
