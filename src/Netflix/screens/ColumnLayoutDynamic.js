@@ -34,7 +34,7 @@ const heightGen = id => {
 
 const marginLeft = id => {
   if (id % 4 === 0) {
-    return -207;
+    return '-50%';
   } else if (id % 2 === 0) {
     return 0;
   }
