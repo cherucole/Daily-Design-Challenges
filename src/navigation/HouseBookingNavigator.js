@@ -6,6 +6,7 @@ import Foundation from 'react-native-vector-icons/Foundation';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 
 import Home from '../HouseBooking/screens/Listings';
 import Details from '../HouseBooking/screens/Details';
@@ -73,7 +74,7 @@ const DashboardTabNavigator = createBottomTabNavigator(
   },
 );
 
-const MainNavigator = createStackNavigator(
+const MainNavigator = createSharedElementStackNavigator(
   {
     DashboardTabNavigator: DashboardTabNavigator,
     Details: Details,
@@ -81,6 +82,12 @@ const MainNavigator = createStackNavigator(
   {
     defaultNavigationOptions: {
       headerShown: false,
+      cardStyleInterpolator: ({ current: { progress } }) => {
+        return { cardStyle: { opacity: progress } };
+      },
+      cardStyle: {
+        backgroundColor: 'transparent',
+      },
     },
   },
 );

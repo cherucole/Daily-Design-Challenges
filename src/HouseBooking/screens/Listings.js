@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { SharedElement } from 'react-navigation-shared-element';
 
 import { ListingCard } from '../components/UI';
 import { ScrollView } from 'react-native-gesture-handler';

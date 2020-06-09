@@ -5,9 +5,11 @@ import {
   StyleSheet,
   ImageBackground,
   StatusBar,
+  Image,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { SharedElement } from 'react-navigation-shared-element';
 
 const Details = props => {
   const house = props.navigation.getParam('house');
@@ -15,29 +17,31 @@ const Details = props => {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
       <View style={{ height: '55%' }}>
-        <ImageBackground
-          style={{ width: '100%', height: '100%' }}
-          source={house.image}>
-          <View style={{ height: 50, marginBottom: 10 }}>
-            <LinearGradient
-              locations={[0, 1.0]}
-              colors={['rgba(10,9,40,0.8)', 'rgba(0,0,0,0)']}
-              style={styles.linearGradient}
-            />
-          </View>
-          <View style={styles.headerNav}>
-            <View style={styles.priceContainer}>
-              <Text style={styles.priceText}>€{house.price}/month</Text>
+        <SharedElement id={house.id}>
+          <ImageBackground
+            style={{ width: '100%', height: '100%' }}
+            source={house.image}>
+            <View style={{ height: 50, marginBottom: 10 }}>
+              <LinearGradient
+                locations={[0, 1.0]}
+                colors={['rgba(10,9,40,0.8)', 'rgba(0,0,0,0)']}
+                style={styles.linearGradient}
+              />
             </View>
-            <Ionicons
-              onPress={() => props.navigation.goBack()}
-              style={{ marginTop: -5, transform: [{ rotate: '-45deg' }] }}
-              name="md-add"
-              size={38}
-              color="white"
-            />
-          </View>
-        </ImageBackground>
+            <View style={styles.headerNav}>
+              <View style={styles.priceContainer}>
+                <Text style={styles.priceText}>€{house.price}/month</Text>
+              </View>
+              <Ionicons
+                onPress={() => props.navigation.goBack()}
+                style={{ marginTop: -5, transform: [{ rotate: '-45deg' }] }}
+                name="md-add"
+                size={38}
+                color="white"
+              />
+            </View>
+          </ImageBackground>
+        </SharedElement>
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.name}>{house.name}</Text>
@@ -75,6 +79,11 @@ const Details = props => {
       </View>
     </View>
   );
+};
+
+Details.sharedElements = navigation => {
+  const house = navigation.getParam('house');
+  return [house.id];
 };
 export default Details;
 

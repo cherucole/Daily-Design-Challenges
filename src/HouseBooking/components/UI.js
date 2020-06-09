@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
+import { SharedElement } from 'react-navigation-shared-element';
 
 export const ListingCard = props => {
   return (
@@ -73,28 +74,30 @@ export const ListingCard = props => {
           </View>
         </View>
         <View style={styles.imageContainer}>
-          <ImageBackground
-            style={{ height: '100%', justifyContent: 'flex-end' }}
-            source={props.image}>
-            <View style={styles.name}>
-              <LinearGradient
-                ref={r => (this.gradiant = r)}
-                locations={[0, 1.0]}
-                colors={['rgba(0,0,0,0.05)', 'rgba(10,9,40,0.7)']}
-                style={styles.linearGradient}>
-                <View styles={{ width: '60%' }}>
-                  <Text style={styles.nameText}>{props.name}</Text>
-                </View>
-                <View style={styles.mapIcon}>
-                  <FontAwesome
-                    name="location-arrow"
-                    size={28}
-                    color="#4A5EDF"
-                  />
-                </View>
-              </LinearGradient>
-            </View>
-          </ImageBackground>
+          <SharedElement id={props.id}>
+            <ImageBackground
+              style={{ height: '100%', justifyContent: 'flex-end' }}
+              source={props.image}>
+              <View style={styles.name}>
+                <LinearGradient
+                  ref={r => (this.gradiant = r)}
+                  locations={[0, 1.0]}
+                  colors={['rgba(0,0,0,0.05)', 'rgba(10,9,40,0.7)']}
+                  style={styles.linearGradient}>
+                  <View styles={{ width: '60%' }}>
+                    <Text style={styles.nameText}>{props.name}</Text>
+                  </View>
+                  <View style={styles.mapIcon}>
+                    <FontAwesome
+                      name="location-arrow"
+                      size={28}
+                      color="#4A5EDF"
+                    />
+                  </View>
+                </LinearGradient>
+              </View>
+            </ImageBackground>
+          </SharedElement>
         </View>
       </View>
     </TouchableWithoutFeedback>
